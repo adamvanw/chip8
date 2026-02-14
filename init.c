@@ -11,7 +11,6 @@ void init_chip8(Chip8* c8) {
             c8->display[x + y * WIDTH] = false;
         }
     }
-
 }
 
 bool populate_memory(Chip8* c8, char* filename) {
