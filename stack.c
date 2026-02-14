@@ -3,6 +3,12 @@
 
 void stack_push(Stack* stk, int16_t val) {
     Stack* copy = stk;
+    if (stk == NULL) {
+        stk = malloc(sizeof(Stack));
+        stk->val = val;
+        stk->next = NULL;
+        return;
+    }
     while (copy->next != NULL) {
         copy = copy->next;
     }
@@ -16,6 +22,9 @@ void stack_push(Stack* stk, int16_t val) {
 
 int stack_pop(Stack* stk) {
     Stack* copy = stk;
+    if (stk == NULL) {
+        return -1;
+    }
     while (copy->next != NULL) {
         copy = copy->next;
     }

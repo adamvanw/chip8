@@ -1,19 +1,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
-#include "stack.h"
+#include <SDL3/SDL.h>
+#include "init.h"
 
-typedef struct Chip8 {
-    int8_t mem[4096];
-    bool display[64*32];
+uint16_t fetch(Chip8*);
+void decode_execute(uint16_t, Chip8*);
 
-    Stack* stk;
-    int8_t* pc;
-    int8_t i;
-
-    int8_t delayTimer;
-    int8_t soundTimer;
-    int8_t v[16];
-} Chip8;
-
-int16_t fetch(Chip8*);
-void decode_execute(int16_t, Chip8*);
+void get_inputs();
+void update_screen(Chip8*, SDL_Surface*);
